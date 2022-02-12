@@ -26,9 +26,40 @@ I added the faucet and background noise sounds from <a href = "https://www.edgei
 ## Data Upload
 On my Edge Impulse page, I created a new project, and headed to the Data Acquisition page. I uploaded my audio, taking all files from one folder (hence one label) at a time. I had it automatically split between training and testing data, and I entered the name for the class of data I had uploaded, and saved the data on the Edge Impulse system. This was repeated for all three data classes.
 
+![data-split-image](https://github.com/edudzi-mamattah/edgeimpulse-audio-classification/blob/main/images/data-split-image.png)
+
+
 
 ## Feature Extraction
+
+![impulse-image](https://github.com/edudzi-mamattah/edgeimpulse-audio-classification/blob/main/images/impulse-image.png)
+
 On the Impulse design page of my Edge Impulse project, I initially added an <a href = "http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/"> MFCC(Mel Frequency Cepstral Coefficient) </a> processing block (feature extraction) to a Keras classifier, but for this set of data, it had a hard time with the training.
 I then changed the processing block to a <a href = "https://pnsn.org/spectrograms/what-is-a-spectrogram#:~:text=A%20spectrogram%20is%20a%20visual,energy%20levels%20vary%20over%20time."> Spectrogram </a> and had much better results.
 
+![spectrogram-image](https://github.com/edudzi-mamattah/edgeimpulse-audio-classification/blob/main/images/spectrogram-image.png)
 
+## Model Training
+
+Still on the Edge Impulse website, I navigated to the classifier page. I did not change the hyperparameters from their defaults (learning rate: 5e-4 and 30 epochs) as I wanted to observe how the training would pan out. It turned out good enough so I used that model.
+
+### The model architecture:
+ ![model-architecture](https://github.com/edudzi-mamattah/edgeimpulse-audio-classification/blob/main/images/model-architecture.png)
+
+
+### Training results:
+
+![training-results](https://github.com/edudzi-mamattah/edgeimpulse-audio-classification/blob/main/images/training-results.png)
+
+![on-device-performance](https://github.com/edudzi-mamattah/edgeimpulse-audio-classification/blob/main/images/on-device-performance.png)
+
+
+## Model Testing
+
+I went to the model testing page, to classify all the test data. The results are shown below.
+
+
+![test-results](https://github.com/edudzi-mamattah/edgeimpulse-audio-classification/blob/main/images/test-results.png)
+
+
+Happy with the results, I decided to deploy to my smartphone for live classification.

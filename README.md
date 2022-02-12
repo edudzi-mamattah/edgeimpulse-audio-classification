@@ -63,3 +63,14 @@ I went to the model testing page, to classify all the test data. The results are
 
 
 Happy with the results, I decided to deploy to my smartphone for live classification.
+
+
+## Live Testing and Observations
+Disclaimer: I did this live classification in a different building from where I sampled the data, so none of the faucets were the same.
+
+Performing live classification opened my eyes to diffent things.  
+
+First of all, I realised that the sound of running water is so close to the sound of background noise sometimes, that it makes the classifier uncertain about what it is hearing. This could probably explain why some people use rain or running water sounds to sleep -as it tows the line between background noise and a foreground sound seamlessly. 
+
+Also, when nothing is playing in the vicinity, the probability score for background noise is highest during live classification, which got me thinking: can wind be considered as background noise?
+I then tested the algorithm on music that was different to what I trained it on. It performed surprisingly well for the most part. It even labelled some classical music correctly (I just had to turn the volume up a bit).
